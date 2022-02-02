@@ -1,0 +1,424 @@
+@import "var";
+@import "rezet";
+@import "mixin";
+@import "svg";
+body{
+    color: $dark_blue;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+}
+.title{
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: normal;
+    margin: 24px 0;
+}
+.text{
+    line-height: 144%;
+    opacity: 0.8;
+    margin: 20px 0;
+}
+
+.header{
+    padding-top: 30px;
+    width: 100%;
+    height: 940px;
+    background: linear-gradient(210deg, transparent, rgba(255, 255, 255, 0.9) 90%),url(../img/header_baner.png);
+    background-size: cover;
+    background-position: center;
+    &__top{
+        padding: 30px calc(50vw - 576px);
+        @include  flex("", "", center);
+        height: 80px;
+        background: #ffffff1a;
+        backdrop-filter: blur(9px);;
+    }
+    &__info{
+        padding: 30px calc(50vw - 576px);
+        height: 100%;
+        @include  flex(column, center, "");
+    }
+    &__title{
+        font-size: 44px;
+        max-width: 560px;
+    }
+    &__text{
+        max-width: 465px;
+    }
+}
+.nav{
+    flex-grow: 1;
+    &__list{
+        @include  flex("", flex-end, "");
+    }
+    &__item{
+        margin-right: 32px;
+    }
+    &__link{
+        color: $dark_blue;
+        font-size: 14px;
+        &:hover{
+            font-size: 1.5em;
+        }
+    }
+    &__burger,
+    &__burger-img{
+        display: none;
+    }
+}
+.moon_svg{
+    width: 32px;
+    height: 32px;
+    background: #262b404d;
+    border-radius: 1px;
+    @include flex("", center, center);
+}
+.link_exude{
+    color: $coral;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 50px 0;
+    position: relative;
+    width: fit-content;
+    &::after{
+        content: "";
+        @include absolute(100%, 13px, 8px, 13px);
+        background: $coral;
+        opacity: 0.3;
+    }
+    &:hover{
+        font-size: 1.5em;
+    }
+}
+.text_exude{
+    font-style: italic;
+    color: $spring;
+}
+.statistic{
+    padding: 0 calc(50vw - 576px);
+    background: url("../img/statistic_baner.png") 30% 50% no-repeat;
+    position: relative;
+    top: -70px;
+    @include flex("", flex-end, center);
+    background-size: 566px 680px;
+    &__info{
+        max-width: 760px;
+        margin: 50px 0;
+        background:  #FFFFFF;
+        opacity: 0.9;
+        @include flex("", "", "")
+    }
+    &__numbers{
+        @include flex(column, center, center);
+        flex: 1 1 50%;  
+    }
+    &__number{
+        text-align: center;
+    }
+    &__number_middle{
+        position: relative;
+    }
+    &__number_middle::before,
+    &__number_middle::after{
+        content: "";
+        @include absolute(82px, 1px, 33%, 10px);
+        background-color: $spring;
+    }
+    &__number_middle::after{
+        top: 185px;
+    }
+    &__title{
+        font-size: 68px;
+        margin: 12px;
+        text-align: center;
+    }
+    &__text{
+        @include flex(column, center, "");
+        flex: 1 1 50%;
+    }
+}
+.qualified{
+    padding: 0 calc(50vw - 576px);
+    @include flex("", space-between, "");
+    flex-wrap: wrap;
+    &__info{
+        max-width: 500px;
+        border-top: 1px solid #E4E4E4;
+        margin: 20px;
+        height: 340px;
+    }
+}
+.ceo{
+    padding: 0 calc(50vw - 576px);
+    min-height: 400px;
+    background: url("../img/ceo_baner.png") no-repeat center;
+    @include flex("", "", center);
+    &__info{
+        padding-left: 129px;
+        position: relative;
+        color: #FFFFFF;
+        &::before{
+            content: "";
+            background: url("../img/quote_icon.svg");
+            @include absolute(102px, 84px, 70px, -35px);
+        }
+    }
+    &__text{
+        font-size: 32px;
+        line-height: 144%;
+        max-width: 710px;
+        letter-spacing: 0.04em;
+    }
+    &__discription{
+        font-size: 20px;
+        font-style: italic;
+        margin: 40px 0;
+    }
+}
+.video{
+    padding: 120px calc(50vw - 450px);
+    &__wraper{
+        padding: 25px 60px 25px 28px;
+        border: 1px solid #E4E4E4;;
+        border-radius: 32px;
+        position: relative;
+        &::after{
+            content: "";
+            background: url("../img/elipce.svg");
+            @include absolute(32px, 32px, "", 50%);
+            right: 14px;
+        }
+        &:hover{
+            border: 3px solid $spring;
+        }
+    }
+    &__item{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.exchange{
+    padding: 0 calc(50vw - 576px);
+    &__container{
+        height: 540px;
+        background: url("../img/exchange_baner.png") no-repeat;
+        background-size: 50% 100%;
+        @include flex("", "", center);
+    }
+    &__info{
+        margin: 50px 0;
+        width: 100%;
+        min-height: 450px;
+        background: #FFFFFF;
+        opacity: 0.9;
+        @include flex("", space-around, center);
+        flex-wrap: wrap;
+    }
+    &__block{
+        max-width: 320px;
+        flex: 1 1 50%;
+        padding: 5px;
+    }
+    &__title{
+        font-size: 24px;
+    }
+    &__btn{
+        width: 20vw;
+        min-width: 150px;
+        height: 94px;
+        background: none;
+        border: 1px solid #E4E4E4;
+        @include flex("", center, center);
+    }
+}
+.form{
+width: 240px;
+height: 330px;
+color: #FFFFFF;
+opacity: 0.9;
+margin: 0 75px;
+padding: 20px;
+background: #161926;
+border-radius: 12px;
+&__text{
+    word-spacing: 5px;
+    height: 60px;
+    width: 80%;
+    @include flex("", space-between, center);
+}
+&__text_opacity{
+    font-size: 12px;
+    opacity: 0.3;
+}
+&__rate{
+    height: 80px;
+    padding: 10px 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+&__number{
+    margin-left: 10px;
+    font-size: 20px;
+    margin-top: -20px;
+}
+&__number_big{
+    font-size: 56px;
+}
+&__pays{
+    @include flex("", "", "");
+    margin: 10px 0 18px 0;
+}
+&__pay,
+&__receive{
+    flex: 1 1 50%;  
+    position: relative;
+}
+&__receive::after,
+&__pay::after{
+    content: "";
+    @include absolute(18px, 18px, "", 25px);
+    background: url("../img/bitcoin_logo.svg");
+    right: 10px;
+    opacity: 0.4;
+}
+&__receive::after{
+    background: url("../img/tcoin_logo.svg");
+}
+&__input{
+width: 94px;
+height: 28px;
+opacity: 0.1;
+    &_small{
+        width: 51px;
+        height: 17px;
+    }
+}
+&__input::placeholder{
+    color: #FFFFFF;
+}
+&__wraper{
+    @include flex("", space-between, "");
+    margin: 10px 0;
+}
+&__fieldset{
+    font-size: 12px;
+    @include flex("", space-between, center);
+    border: none;
+    letter-spacing: 0.04em;
+    padding-top: 10px;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+}
+/* для элемента input c type="radio" */
+ .custom-radio>input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  } 
+  /* создание в label псевдоэлемента  before со следующими стилями */
+  .custom-radio>span::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 90% 90%;
+  }
+  /* стили при наведении курсора на радио */
+  .custom-radio>input:not(:disabled):not(:checked)+span:hover::before {
+    border-color: #b3d7ff;
+  }
+  /* стили для радиокнопки, находящейся в состоянии checked */
+  .custom-radio>input:checked+span::before {
+    border: 3px solid #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+  }
+.reviews{
+    padding: 150px calc(50vw - 576px);
+    @include flex("", space-between, "");
+    &__info{
+        max-width: 330px;
+        position: relative;
+    }
+}
+.slider{
+    width: 468px;
+    height: 333px;
+    overflow: hidden;
+    &_line{
+        height: 333px;
+        width: calc(468px * 4);
+        @include flex("", "", "");
+        position: relative;
+        left: 0;
+        transition: all ease 1s;
+    }
+    &__nav{
+        position: absolute;
+        bottom: 0;
+        @include flex("", space-between, "center");
+        width: 100%;
+    }
+    &__prev,
+    &__next{
+        background: none;
+        border: none;
+        &:hover{
+            transform: scale(1.2);
+        }
+    } 
+    &__counter{
+        position: relative;
+    }   
+    &__counter::after{
+        content: "4";
+        font-size: 40px;
+        @include absolute("", "", 15px, -15px);
+        color: $spring;
+        font-style: italic;
+    }
+}
+.contact{
+    padding: 120px calc(50vw - 576px);
+    border-top: 1px solid #E4E4E4;
+    border-bottom: 1px solid #E4E4E4;
+    @include flex("", space-between, "");
+    &__info,
+    &__form{
+        flex: 1 1 50%;
+        max-width: 500px;
+        padding: 0 5px;
+    }
+    &__form{
+        @include flex(column, space-between, "");
+    }
+    &__input{
+        height: 70px;
+        border: none;
+        font-size: 18px;
+        font-style: italic;
+        }
+}
+.footer{
+    padding: 20px calc(50vw - 576px);
+    @include flex("", "", "");
+    flex-wrap: wrap;
+    &__opacity,
+    &__strong{
+        flex: 1 1 50%;
+        @include flex("", space-between, center);
+        font-size: 14px;
+        opacity: 0.6;
+    }
+    &__strong{
+        opacity: 1;
+    }
+}
+@import "media_quer";
